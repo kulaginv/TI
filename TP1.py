@@ -298,7 +298,8 @@ tx, ty = 50, 50
 translation_matrix = np.float32([[1, 0, tx],
                                 [0, 1, ty]])
 translated_image = cv2.warpAffine(I_bricks_decoup, translation_matrix, (w, h))
-show_image(translation_matrix, 'Image decalee')
+show_image(translated_image, 'Image decalee')
+fourier(translated_image, 'Module décalé', 'Argument décalé')
 
 
 # =============================================================================

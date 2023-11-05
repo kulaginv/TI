@@ -239,6 +239,28 @@ plt.show()
 # =============================================================================
 # Ex BONUS
 # =============================================================================
+I_coins = cv2.imread("Images/Coins.jpg",0)
+
+threshold_value = 107
+histogram = cv2.calcHist([I_coins], [0], None, [256], [0, 256])
+_, binarized_image = cv2.threshold(I_coins, threshold_value, 255, cv2.THRESH_BINARY)
+
+plt.figure()
+plt.subplot(121)
+plt.imshow(I_coins, 'gray')
+plt.title('Image Originale')
+
+plt.subplot(122)
+plt.imshow(binarized_image, 'gray')
+plt.title(f'Image Binarisée Seuil= {threshold_value}')
+
+# Afficher l'histogramme
+plt.figure()
+plt.plot(histogram)
+plt.title('Histogramme')
+plt.axvline(x=threshold_value, color='r', linestyle='dashed', linewidth=2)
+
+plt.show()
 
 
 # =============================================================================
